@@ -23,20 +23,20 @@ public class Orchestrator {
     }
 
 
-    public void runWorkflow(){
-        try{
-            databaseConnection=new CreateConnection();
-            Connection connection=databaseConnection.createConnection();
-            databaseCreateTable=new CreateTable();
+    public void runWorkflow() {
+        try {
+            databaseConnection = new CreateConnection();
+            Connection connection = databaseConnection.createConnection();
+            databaseCreateTable = new CreateTable();
             databaseCreateTable.createTable(connection);
 
-            databaseInsertData=new InsertData();
+            databaseInsertData = new InsertData();
             databaseInsertData.insertData(connection);
 
-            databaseReadData=new ReadData();
+            databaseReadData = new ReadData();
             databaseReadData.readData(connection);
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
